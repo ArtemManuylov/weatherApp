@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap");
+
+body {
+  font-family: "Rubik", sans-serif;
+  line-height: 1.2;
+  color: #ffffff;
+  background: linear-gradient(180deg, #0f3443 0%, rgba(15, 52, 67, 0) 100%),
+    #34e89e;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: auto 20px;
+  min-height: 100vh;
+}
+
+.header {
+  border-radius: 0px 0px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 100px;
+  padding: 0 15px 0;
+}
+.title {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 50px;
+  margin-top: 24px;
+  margin-bottom: 60px;
+}
+.form {
+  width: 500px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.input {
+  background-color: #0f3443;
+  border: none;
+  border-radius: 5px;
+  height: 40px;
+  width: 250px;
+}
+.input[type="text"] {
+  font-size: 20px;
+  color: #ffffff;
+  padding-left: 6px;
+}
+.input::placeholder {
+  color: #ffffff;
+  font-weight: 300;
+  font-size: 20px;
+}
+.btn {
+  padding: 0 18px 0;
+  border: none;
+  font-weight: 700;
+  font-size: 20px;
+  color: #ffff;
+  background-color: #0f3443;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: color ease-in-out 0.2s;
+}
+.btn:hover {
+  color: #ffffff83;
+}
+.main {
+  display: flex;
+  justify-content: center;
+}
+.main-inner {
+  background: linear-gradient(180deg, #0f3443 0%, rgba(15, 52, 67, 0) 100%),
+    #34e89e;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 15px 15px 50px 0px #0f3443;
+  padding: 7px 125px 30px;
+}
+.title-city {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 30px;
+  margin-top: 7px;
+  margin-bottom: 20px;
+}
+.country {
+  font-size: 20px;
+  font-weight: 200;
+}
+.temperature {
+  font-weight: 400;
+  font-size: 100px;
+}
+.character {
+  font-weight: 200;
+  font-size: 25px;
+}
+@media(max-width:570px){
+  .form{
+    width: 447px;
+  }
+}
+
+@media(max-width:500px){
+  .form{
+    width: 400px;
+  }
+}
+@media(max-width:450px){
+  .header{
+    align-content: center;
+  }
+  .form{
+    flex-direction: column;
+    align-items: center;
+  }
+  .input{
+    margin-bottom: 20px;
+  }
+  .btn{
+    width: 100px;
+    height: 40px;
+  }
+  .main-inner{
+    padding: 7px 100px 30px;
+  }
+}
+
+@media(max-width:400px){
+  .form{
+    width: 270px;
+  }
+  .main-inner{
+    padding: 7px 85px 30px;
+  }
+  .title-city{
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .country{
+    font-size: 15px;
+  }
+  .temperature{
+    font-size: 50px;
+  }
+  .character{
+    font-size: 15px;
+  }
+}
