@@ -11619,20 +11619,31 @@ let lengJson = [
 
 const apiKey ='09fe630e350245c8b2d152734231005';
 const form = document.querySelector('.form');
-const input = document.querySelector('.input');
+let input = document.querySelector('.input');
 let mainInner = document.querySelector('.main-inner');
 let img = document.querySelector('.img');
+let btn = document.querySelector('.btn');
+let LS = localStorage;
 
+form.addEventListener('input', function(event){
 
-let character = document.querySelector('.character');
-/* https://api.weatherapi.com/v1/current.json?key=09fe630e350245c8b2d152734231005&q=london */
+  let valueInput = {};
+  valueInput.firstName = event.target.value;
+  LS.setItem('valueInput',JSON.stringify(valueInput));
 
-form.addEventListener('submit', (e)=>{
+});
+
+  if(LS.getItem('valueInput')){
+   valueInput = JSON.parse(LS.getItem('valueInput'));
+   form.elements[0].value = valueInput.firstName;
+  };
+
+    form.addEventListener('submit', (e)=>{
     e.preventDefault();
     let city = input.value.trim();
     const queryApi = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
-    
 
+    
     fetch(queryApi)
     .then((resp)=>{
       return resp.json();
@@ -11650,9 +11661,9 @@ form.addEventListener('submit', (e)=>{
 
       let info = lengJson.find((obj)=> obj.code === data.current.condition.code);
 
-      document.querySelector('.character').textContent = data.current.is_day  ? info.languages[23]['day_text'] : info.languages[23]['night_text'];
-      document.querySelector('.country').textContent = data.location.country;
-      document.querySelector('.temperature').textContent = data.current.temp_c + '°C';
+      let character = document.querySelector('.character').textContent = data.current.is_day  ? info.languages[23]['day_text'] : info.languages[23]['night_text'];
+      let country = document.querySelector('.country').textContent = data.location.country;
+      let temperature = document.querySelector('.temperature').textContent = data.current.temp_c + '°C';
     
       let nameCharacter;
 
@@ -11665,9 +11676,7 @@ form.addEventListener('submit', (e)=>{
       let imagePath = './images/' + nameCharacter + '.png';
       img.setAttribute('src', imagePath);
 
-      
-
     });
-});
+})
 
-
+btn.click();
