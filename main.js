@@ -11620,9 +11620,12 @@ let lengJson = [
 const apiKey ='09fe630e350245c8b2d152734231005';
 const form = document.querySelector('.form');
 const input = document.querySelector('.input');
+let mainInner = document.querySelector('.main-inner');
+let img = document.querySelector('.img');
+
 
 let character = document.querySelector('.character');
-
+/* https://api.weatherapi.com/v1/current.json?key=09fe630e350245c8b2d152734231005&q=london */
 
 form.addEventListener('submit', (e)=>{
     e.preventDefault();
@@ -11645,12 +11648,25 @@ form.addEventListener('submit', (e)=>{
       };
 
 
+      let info = lengJson.find((obj)=> obj.code === data.current.condition.code);
+
+      document.querySelector('.character').textContent = data.current.is_day  ? info.languages[23]['day_text'] : info.languages[23]['night_text'];
       document.querySelector('.country').textContent = data.location.country;
       document.querySelector('.temperature').textContent = data.current.temp_c + '°C';
+    
+      let nameCharacter;
+
+      if(data.current.is_day){
+        nameCharacter = info.day;
+      }else{
+        nameCharacter =info.night;
+      };
+    
+      let imagePath = './images/' + nameCharacter + '.png';
+      img.setAttribute('src', imagePath);
+
       
-      
-      let info = lengJson.find((obj)=> obj.code === data.current.condition.code);
-      document.querySelector('.character').textContent = info.languages[23]['day_text'];
+
     });
 });
 
