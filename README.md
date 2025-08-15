@@ -1,2 +1,2 @@
 # weatherApp
-https://artemmanuylov.github.io/weatherApp/
+# https://artemmanuylov.github.io/weatherApp/
